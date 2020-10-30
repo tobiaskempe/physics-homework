@@ -2,6 +2,7 @@
 import sys
 import random
 import math
+import numpy as np
 
 def shoot_pi(num_samples = 10, verbose = True):
 
@@ -13,7 +14,8 @@ def shoot_pi(num_samples = 10, verbose = True):
     for _ in range(num_samples):
         x = random.random()
         y = random.random()
-        if (math.sqrt(math.pow(x, 2) + math.pow(y, 2)) < 1):
+        point = np.array([x, y])
+        if (np.linalg.norm(point) < 1):
             num_hits += 1
     
     # compute pi as ratio of hits to all samples
