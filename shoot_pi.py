@@ -4,6 +4,7 @@ import random
 import math
 import numpy as np
 
+# num_shoots is N from the exercise sheet.
 def shoot_pi(num_shoots = 10, verbose = True):
 
     if verbose:
@@ -26,7 +27,6 @@ def shoot_pi(num_shoots = 10, verbose = True):
         print('PI is approximately ', str(pi), '!', sep='')
     
     return pi
-
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
