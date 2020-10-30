@@ -4,14 +4,14 @@ import random
 import math
 import numpy as np
 
-def shoot_pi(num_samples = 10, verbose = True):
+def shoot_pi(num_shoots = 10, verbose = True):
 
     if verbose:
-        print('Shooting PI with ' + str(num_samples) + ' samples...')
+        print('Shooting PI with ' + str(num_shoots) + ' samples...')
     
     # shoot randomly (uniform) at 1x1 area at count hits of inner quarter circle.
     num_hits = 0
-    for _ in range(num_samples):
+    for _ in range(num_shoots):
         x = random.random()
         y = random.random()
         point = np.array([x, y])
@@ -20,7 +20,7 @@ def shoot_pi(num_samples = 10, verbose = True):
     
     # compute pi as ratio of hits to all samples
     # (factor 4 necessary, since we're only shooting at a quarter circle)
-    pi = (num_hits / num_samples) * 4 
+    pi = (num_hits / num_shoots) * 4 
 
     if verbose:
         print('PI is approximately ', str(pi), '!', sep='')
