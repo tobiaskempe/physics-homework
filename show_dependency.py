@@ -12,8 +12,8 @@ def initialize_plots(M, fullscreen=False):
     fig.suptitle(r'Showing: $\Delta x \sim \frac{1}{\sqrt{N}}$, M=' + str(M))
     axs[0].set_xlabel('N')
     axs[0].set_ylabel(r'$\Delta x$', rotation=0)
-    axs[1].set_xlabel(r'$\frac{1}{\sqrt{N}}$')
-    axs[1].set_ylabel(r'$\Delta x$', rotation=0)
+    axs[1].set_xlabel(r'$log(N)$')
+    axs[1].set_ylabel(r'$log(\Delta x)$', rotation=0)
     return axs
 
 
@@ -35,7 +35,7 @@ def show_dependency():
         print(round(ratio, 3))
         
     axs[0].plot(Ns, np.array(results)[:, 1])
-    axs[1].plot(1/np.sqrt(np.array(Ns)), np.array(results)[:, 1])
+    axs[1].plot(np.log(np.array(Ns)), np.log(np.array(results)[:, 1]))
     plt.show()
 
 if __name__ == '__main__':
