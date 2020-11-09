@@ -33,18 +33,27 @@ if __name__ == '__main__':
 
     M = 10_000
 
-    dist = random_uniform
+    dists = (random_binary, random_uniform, random_poisson)
+    Ns = (1, 10, 100, 1000, 1000)
 
-    #for N in range(1, 2, 1):
+    fig, axs = plt.subplots(5, 3)
 
-    N = 50
+    for i in range(5):
+        # N = int(np.power(np.power(100, 1/4), i))
+        N = Ns[i]
+        print(N)
+        for j in range(3):
+            sample = sample_Y(M, N, dists[j])
+            axs[i][j].hist(sample, bins=200)
+    plt.show()
 
-    ys = []
-    ys.append(sample_Y(M, N, random_binary))
-    ys.append(sample_Y(M, N, random_uniform))
-    ys.append(sample_Y(M, N, random_poisson))
 
-    viz_Y(ys)
+    # ys = []
+    # ys.append(sample_Y(M, N, random_binary))
+    # ys.append(sample_Y(M, N, random_uniform))
+    # ys.append(sample_Y(M, N, random_poisson))
+
+    # viz_Y(ys)
         
 
         
